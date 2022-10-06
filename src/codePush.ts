@@ -413,6 +413,7 @@ class CodePush implements CodePushCapacitorPlugin {
 
     const onDownloadSuccess = (localPackage: ILocalPackage) => {
       syncCallback && syncCallback(null, SyncStatus.INSTALLING_UPDATE);
+      // Step 1 after install 
       localPackage.install(syncOptions).then(onInstallSuccess, onError);
     };
 

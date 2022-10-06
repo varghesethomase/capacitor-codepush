@@ -325,6 +325,7 @@ class CodePush {
         };
         const onDownloadSuccess = (localPackage) => {
             syncCallback && syncCallback(null, SyncStatus.INSTALLING_UPDATE);
+            // Step 1 after install 
             localPackage.install(syncOptions).then(onInstallSuccess, onError);
         };
         const downloadAndInstallUpdate = (remotePackage) => {
