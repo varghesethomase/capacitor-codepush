@@ -106,7 +106,7 @@ StatusReport* rollbackStatusReport = nil;
 
     NSString *jwt = [self getString:call field:@"signature" defaultValue:nil];
 
-     NSLog(@"jwt:  %@", *jwt);
+     NSLog(@"jwt:  %@", jwt);
 
     id <JWTAlgorithmDataHolderProtocol> verifyDataHolder = [JWTAlgorithmRSFamilyDataHolder new]
             .keyExtractorType([JWTCryptoKeyExtractor publicKeyWithPEMBase64].type)
