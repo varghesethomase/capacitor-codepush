@@ -97,7 +97,7 @@ public class CodePush extends Plugin {
                     try {
                         publicKey = parsePublicKey(stringPublicKey);
                     } catch (CodePushException e) {
-                        call.reject("Error occurred while creating the a public key" + e.getMessage());
+                        call.reject("Error occurred while creating the public key" + e.getMessage());
                         return null;
                     }
 

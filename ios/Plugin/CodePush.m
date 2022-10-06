@@ -94,7 +94,6 @@ StatusReport* rollbackStatusReport = nil;
 
 - (void)decodeSignature:(CAPPluginCall *)call {
     NSString *publicKey = [self getString:call field:@"publicKey" defaultValue:nil];
-
     // remove BEGIN / END tags and line breaks from public key string
     publicKey = [publicKey stringByReplacingOccurrencesOfString:@"-----BEGIN PUBLIC KEY-----\n"
                                                      withString:@""];
@@ -103,7 +102,11 @@ StatusReport* rollbackStatusReport = nil;
     publicKey = [publicKey stringByReplacingOccurrencesOfString:@"\n"
                                                      withString:@""];
 
+     NSLog(@"publicKey after processing:  %@", publicKey);
+
     NSString *jwt = [self getString:call field:@"signature" defaultValue:nil];
+
+     NSLog(@"jwt:  %@", *jwt);
 
     id <JWTAlgorithmDataHolderProtocol> verifyDataHolder = [JWTAlgorithmRSFamilyDataHolder new]
             .keyExtractorType([JWTCryptoKeyExtractor publicKeyWithPEMBase64].type)
