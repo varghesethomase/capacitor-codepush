@@ -95,7 +95,7 @@ StatusReport* rollbackStatusReport = nil;
 - (void)decodeSignature:(CAPPluginCall *)call {
     NSString *publicKey = [self getString:call field:@"publicKey" defaultValue:nil];
     // remove BEGIN / END tags and line breaks from public key string
-    publicKey = [publicKey stringByReplacingOccurrencesOfString:@"-----BEGIN PUBLIC KEY-----"
+    publicKey = [publicKey stringByReplacingOccurrencesOfString:@"-----BEGIN PUBLIC KEY-----\n"
                                                      withString:@""];
     publicKey = [publicKey stringByReplacingOccurrencesOfString:@"-----END PUBLIC KEY-----"
                                                      withString:@""];
